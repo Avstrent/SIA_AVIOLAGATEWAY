@@ -13,22 +13,23 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
-
+//$router->get('/', function () use ($router) {
+    //return $router->app->version();
+//});
+$router->group(['middleware' => 'client.credentials'], function() use($router){
 //USER 1 API GATEWAY
-$router->get('/users1', 'User1Controller@index');  // get users
-$router->post('/users1', 'User1Controller@add'); // add user
-$router->get('/users1/{id}', 'User1Controller@show'); // get user by id
-$router->put('/users1/{id}', 'User1Controller@update'); // update user record
-$router->patch('/users1/{id}', 'User1Controller@updates'); // update user record
-$router->delete('/users1/{id}', 'User1Controller@delete'); // delete record
+    $router->get('/users1', 'User1Controller@index');  // get users
+    $router->post('/users1', 'User1Controller@add'); // add user
+    $router->get('/users1/{id}', 'User1Controller@show'); // get user by id
+    $router->put('/users1/{id}', 'User1Controller@update'); // update user record
+    $router->patch('/users1/{id}', 'User1Controller@updates'); // update user record
+    $router->delete('/users1/{id}', 'User1Controller@delete'); // delete record
 
-//USER 2 API GATEWAY
-$router->get('/users2', 'User2Controller@index'); // get users
-$router->post('/users2', 'User2Controller@add'); // add user
-$router->get('/users2/{id}', 'User2Controller@show'); // get user by id
-$router->put('/users2/{id}', 'User2Controller@update'); // update user record
-$router->patch('/users2/{id}', 'User2Controller@updates'); // update user record
-$router->delete('/users2/{id}', 'User2Controller@delete'); // delete record
+    //USER 2 API GATEWAY
+    $router->get('/users2', 'User2Controller@index'); // get users
+    $router->post('/users2', 'User2Controller@add'); // add user
+    $router->get('/users2/{id}', 'User2Controller@show'); // get user by id
+    $router->put('/users2/{id}', 'User2Controller@update'); // update user record
+    $router->patch('/users2/{id}', 'User2Controller@updates'); // update user record
+    $router->delete('/users2/{id}', 'User2Controller@delete'); // delete record
+});
